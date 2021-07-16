@@ -4,7 +4,7 @@ Search google in your console
 
 ### Install
 
-    npm install o -g
+    npm install gonsole -g
 
 ### Usage
 
