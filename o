@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+const term = require( 'terminal-kit' ).terminal
+const xray = require('x-ray')
+const open = require('open')
+const x = xray()
+
+x(`https://www.google.com/search?q=${process.argv.slice(2).join('+')}`, 'a', [{
+  title: 'h3',
+  link: '@href'
+}])((err, results) => {
+  if (err) {
+    throw err
+  }
+  const items = results.filter(v => v.title).map(v => {
+    const idx = v.link.indexOf('=https');
+    const parsed = v.link.substring(idx + 1)
+    const readyLink = parsed.split('&')[0]
+    return ({
+      title: v.title,
+      link: readyLink
+    })
+  })
+  term.singleColumnMenu(items.map(v => v.title), function(error, response) {
+      open(items[response.selectedIndex].link)
+      process.exit();
+  });
+})
