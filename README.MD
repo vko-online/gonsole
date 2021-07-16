@@ -2,6 +2,9 @@
 
 Search google in your console
 
+### Demo
+![Demo](demovideo.gif)
+
 ### Install
 
     npm install gonsole -g
