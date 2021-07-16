@@ -4,6 +4,19 @@ const xray = require('x-ray')
 const open = require('open')
 const x = xray()
 
+const params = process.argv.slice(2)
+if (params.length === 0) {
+  term.cyan('o [query]')
+  term.yellow(`
+
+    Example
+      o elon musk
+
+  `)
+  
+  return
+}
+
 x(`https://www.google.com/search?q=${process.argv.slice(2).join('+')}`, 'a', [{
   title: 'h3',
   link: '@href'
