@@ -3,14 +3,18 @@
   "bin": {
     "o": "./o"
   },
+  "files": [
+    "o"
+  ],
+  "homepage": "https://github.com/vko-online/gonsole",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Search google in your console",
+  "main": "o",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node o"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Medet Tleukabiluly",
+  "license": "MIT",
   "dependencies": {
     "open": "^8.2.1",
     "terminal-kit": "^2.1.6",
